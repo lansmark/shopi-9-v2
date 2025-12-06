@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+/* ✅ Define theme colors */
+@theme {
+  --color-brand-yellow: #FACC15;
+}
+
+/* ✅ Enable dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ✅ Component layer */
+@layer components {
+  .app-container {
+    @apply mx-auto px-4 sm:px-12;
+    max-width: 100%;
+  }
+
+  .search-bar {
+    @apply w-0 group-hover:w-[300px] transition-all duration-300
+    rounded-full group-hover:border group-hover:border-gray-500
+    px-3 py-1 focus:outline-none dark:border-gray-800
+    dark:bg-gray-900 group-hover:dark:bg-gray-800;
+  }
+
+  .page-container {
+    @apply container mx-auto px-4 pb-8 sm:pb-0;
+  }
+
+  .section {
+    @apply bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-700;
+  }
+
+  .section-spacing {
+    @apply mb-12; /* ≈ 16px space between sections */
+  }
+
+  .form-input {
+    @apply w-full rounded-full border border-gray-300
+    dark:border-gray-500 dark:bg-gray-800 px-2 py-1 mb-4;
+  }
+
+  /* ✅ Watches hover animation (Rolex-style) */
+  .watches img {
+    transition: transform 0.7s ease, filter 0.4s ease;
+  }
+
+  .watches .group:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.15);
+  }
+}
+
+/* Swiper styling */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #000 !important;
+}
+
+.dark .swiper-button-prev,
+.dark .swiper-button-next {
+  color: #fff !important;
+}
+
+.swiper-pagination-bullet {
+  background: #000 !important;
+}
+
+.dark .swiper-pagination-bullet {
+  background: #fff !important;
+}
+
+/* ✅ Clothes hover animation (Fashion-style) */
+.clothes img {
+  transition: transform 0.7s ease, filter 0.4s ease;
+}
+
+.clothes .group:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+
+.clothes .group:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bags img {
+  transition: transform 0.7s ease, filter 0.4s ease;
+}
+
+.bags .group:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+
+/*  for Perfumesbrand */
+.perspective {
+  perspective: 1000px;
+}
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* --- Custom utilities to support 3D flip with Tailwind --- */
+[transform-style\:preserve-3d] {
+  transform-style: preserve-3d;
+}
+
+[backface-visibility\:hidden] {
+  backface-visibility: hidden;
+}
+
+/* ✅ Utility layer */
+@layer utilities {
+  .hero-bg-color {
+    @apply bg-linear-to-r from-gray-300/80 to-gray-100
+    dark:from-gray-900 dark:to-gray-800 dark:text-white;
+  }
+}
+
+/* ===== Logo animation ===== */
+.animated-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: letterReveal 0.6s forwards;
+}
+
+@keyframes letterReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* select-brand-style bounce-lift animation */
+@keyframes selectBrandLift {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  50% {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+  }
+  100% {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  }
+}
+
+@keyframes selectBrandLiftShort {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+.hover\:animate-selectBrandLift:hover {
+  animation: selectBrandLiftShort 0.4s ease-in-out;
+}
+
+@keyframes selectBrandFade {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-selectBrandFade {
+  animation: selectBrandFade 0.4s ease-out;
+}
+
+@keyframes selectBrandSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-selectBrandSlideUp {
+  animation: selectBrandSlideUp 0.5s ease-out;
+}
