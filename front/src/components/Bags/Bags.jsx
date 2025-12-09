@@ -62,7 +62,7 @@ className="absolute inset-0 w-full h-full object-cover object-center group-hover
 to={`/bags/${routeName}`}
 className="bg-white/90 text-gray-900 text-sm font-medium px-4 py-2 rounded-full hover:bg-white transition"
 >
-Shop Now
+Brouse Product
 </Link>
 </div>
 
