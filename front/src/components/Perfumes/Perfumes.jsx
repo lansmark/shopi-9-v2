@@ -62,7 +62,7 @@ const Perfumes = ({ title = "Perfume Collection", autoplayDelay = 3500 }) => {
                       onClick={() => navigate(`/perfumes/${routeName}`)}
                       className="bg-white/90 text-gray-900 text-sm font-medium px-4 py-2 rounded-full hover:bg-white transition hover:animate-selectBrandLift"
                     >
-                      Shop Now
+                      Browse Product
                     </button>
                   </div>
                 </div>
