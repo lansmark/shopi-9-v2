@@ -62,7 +62,7 @@ const Clothes = ({ title = "Clothes Collection", autoplayDelay = 3500 }) => {
                   to={`/clothes/${routeName}`}
                   className="bg-white/90 text-gray-900 text-sm font-medium px-4 py-2 rounded-full hover:bg-white transition"
                 >
-                  Shop Now
+                  Browse Product
                 </Link>
               </div>
             </div>
